@@ -27,13 +27,11 @@ public class HttpUtil {
 						response.append(line);
 					}
 					if (listener != null) {
-						// 回调onFinish()方法
-						System.out.println("response:"+response.toString());
+//						System.out.println("response:"+response.toString());
 						listener.onFinish(response.toString());
 					}
 				} catch (Exception e) {
 					if (listener != null) {
-						// 回调onError()方法
 						listener.onError(e);
 					}
 				} finally {

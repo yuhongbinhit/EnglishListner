@@ -13,11 +13,16 @@ public class JsonParse {
 		try {
 			JSONObject jsonObject = new JSONObject(result);
 			JSONObject weatherinfo = jsonObject.getJSONObject("weatherinfo");
-			System.out.println("data length:"+weatherinfo.length());
-			Iterator it = weatherinfo.keys();
+//			System.out.println(weatherinfo.get("city"));
+//			System.out.println("data length:"+weatherinfo.length());
+			Iterator<String> it = weatherinfo.keys();
 			while(it.hasNext()){
-				System.out.println("In JsonParse-"+it.next()+":"+ weatherinfo.getString((String) it.next()));
-				map.put((String)it.next(), weatherinfo.getString((String) it.next()));
+				String key = it.next();
+				String value = weatherinfo.getString(key); 
+				map.put(key, value);
+//				System.out.println("in JsonParse"+map.get(key));
+//				System.out.println("In JsonParse-"+it.next());
+//				map.put((String)it.next(), weatherinfo.getString((String) it.next()));
 			}
 		} catch (JSONException e) {
 			e.printStackTrace();

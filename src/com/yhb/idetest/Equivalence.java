@@ -14,14 +14,15 @@ public class Equivalence {
 				Set<String> keySet = cityWeatherInfo.keySet();
 				Iterator<String> it = keySet.iterator();
 				while(it.hasNext()){
-					System.out.println(it.next()+":"+cityWeatherInfo.get(it.hasNext()));
+					String key = it.next();
+					System.out.println(key+":"+cityWeatherInfo.get(key));
 				}
 			}
 			
 			@Override
 			public void onError(Exception e) {
-				e.printStackTrace();
-				System.out.println("Error");
+//				e.printStackTrace();
+				System.out.println("刷新失败");
 			}
 		});
     }
